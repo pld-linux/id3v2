@@ -1,23 +1,29 @@
---- id3v2-0.1.9/Makefile.old	2003-02-25 16:58:23.000000000 +0100
-+++ id3v2-0.1.9/Makefile	2004-01-05 06:12:06.000000000 +0100
-@@ -1,15 +1,14 @@
- all: id3v2
+diff -burN id3v2-0.1.10.orig/Makefile id3v2-0.1.10/Makefile
+--- id3v2-0.1.10.orig/Makefile	2004-05-14 10:02:36.499371560 +0200
++++ id3v2-0.1.10/Makefile	2004-05-14 10:09:18.463263760 +0200
+@@ -2,19 +2,18 @@
+ 
+ VERSION=0.1.10
  
 -PREFIX=	/usr/local
--CXXFLAGS+=	-I${PREFIX}/include/
--LDFLAGS+=	-L${PREFIX}/lib/
-+PREFIX=	/usr/
-+GPP=g++
+-CXXFLAGS+=	-I${PREFIX}/include/ -DVERSION="\"${VERSION}\"" #-DSORT_RUNTIME
+-LDFLAGS+=	-L${PREFIX}/lib/ 
++CXXFLAGS+=	-I$(PREFIX)/include/ -DVERSION="\"${VERSION}\"" #-DSORT_RUNTIME
++LDFLAGS+=	-L$(PREFIX)/lib/ 
  
- id3v2:	convert.o list.o id3v2.o
--	c++ ${LDFLAGS} -pedantic -Wall -lz -lid3 -g -o $@ id3v2.o list.o convert.o
-+	$(GPP) $(LDFLAGS) -lid3 -o $@ id3v2.o list.o convert.o
+ id3v2:	convert.o list.o id3v2.o genre.o
+-	c++ ${LDFLAGS} -pedantic -Wall -lz -lid3 -g -o $@ $^
++	$(CXX) $(LDFLAGS) -pedantic -Wall -lz -lid3 -g -o $@ $^
+ 
+ create_map: create_map.o
+-	c++ -Wall -g -o $@ $^
++	$(CXX) -Wall -g -o $@ $^
  
  install: all
 -	install -c -s id3v2 ${PREFIX}/bin/id3v2
 -	nroff -man id3v2.1 > ${PREFIX}/man/man1/id3v2.1
-+	install -c id3v2 $(DESTDIR)$(PREFIX)/bin/id3v2
++	install -c -s id3v2 $(DESTDIR)$(PREFIX)/bin/id3v2
 +	nroff -man id3v2.1 > $(DESTDIR)$(PREFIX)/share/man/man1/id3v2.1
  
  clean:
- 	rm -f id3v2 core *.o
+ 	rm -f id3v2 create_map core *.o

@@ -30,17 +30,21 @@ rodzaje tego typu danych.
 
 %build
 %{__make} \
+	PREFIX="%{_prefix}"
+	CPP="%{__cxx}" \
 	CXX="%{__cxx}" \
-	GPP="%{__cxx}" \
-	CXXFLAGS="%{rpmcflags}" \
-	LDFLAGS="%{rpmldflags}"
+	CXXFLAGS="%{rpmcflags} -DVERSION=\\\"%{version}\\\"" \
+#	LDFLAGS="%{rpmldflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1}
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+	DESTDIR=$RPM_BUILD_ROOT \
+	PREFIX=%{_prefix} \
+	CPP="%{__cxx}" \
+	LDFLAGS="%{rpmldflags}"
 
 %clean
 rm -rf $RPM_BUILD_ROOT
