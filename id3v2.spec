@@ -6,7 +6,7 @@ Release:	1
 Epoch:		1
 License:	GPL
 Group:		Applications/Multimedia
-Source0:	http://dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/id3v2/%{name}-%{version}.tar.gz
 Patch0:		%{name}-DESTDIR.patch
 # Source0-md5:	544862d82224312595bf5a45422d1a49
 URL:		http://id3v2.sourceforge.net/
@@ -29,11 +29,16 @@ rodzaje tego typu danych.
 %patch0 -p1
 
 %build
-%{__make} CXXFLAGS="%{rpmcflags}"
+%{__make} \
+	CXX="%{__cxx}" \
+	GPP="%{__cxx}" \
+	CXXFLAGS="%{rpmcflags}" \
+	LDFLAGS="%{rpmldflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1}
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
