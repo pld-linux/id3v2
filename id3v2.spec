@@ -1,13 +1,13 @@
 Summary:	An MP3 technical info viewer and ID3 tag editor
 Summary(pl):	Przegl±darka informacji technicznych MP3 i edytor tagów ID3
 Name:		id3v2
-Version:	0.1.10
+Version:	0.1.11
 Release:	1
 Epoch:		1
 License:	GPL
 Group:		Applications/Multimedia
 Source0:	http://dl.sourceforge.net/id3v2/%{name}-%{version}.tar.gz
-# Source0-md5:	a4a5130e49b6451ced32e208a2f9aeab
+# Source0-md5:	68afc3827cf01501dfb22949f901f1d8
 Patch0:		%{name}-DESTDIR.patch
 URL:		http://id3v2.sourceforge.net/
 BuildRequires:	id3lib-devel
@@ -30,11 +30,10 @@ rodzaje tego typu danych.
 
 %build
 %{__make} \
-	PREFIX="%{_prefix}"
-	CPP="%{__cxx}" \
+	PREFIX="%{_prefix}" \
 	CXX="%{__cxx}" \
 	CXXFLAGS="%{rpmcflags} -DVERSION=\\\"%{version}\\\"" \
-#	LDFLAGS="%{rpmldflags}"
+	LDFLAGS="%{rpmldflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -42,9 +41,7 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	PREFIX=%{_prefix} \
-	CPP="%{__cxx}" \
-	LDFLAGS="%{rpmldflags}"
+	PREFIX=%{_prefix}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
