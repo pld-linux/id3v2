@@ -15,13 +15,14 @@ BuildRequires:	libstdc++-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-ID3 tags can be found on mp3 files, they can store infomation about what band
-recorded the song, the song name, etc. id3v2 adds all kinds of neat stuff.
+ID3 tags can be found on mp3 files, they can store infomation about
+what band recorded the song, the song name, etc. id3v2 adds all kinds
+of neat stuff.
 
 %description -l pl
-Tagi ID3 mog± byæ znalezione w plikach mp3, mog± zawieraæ informacje o rodzaju
-muzyki w piosence, nazwie piosenki itpe. id3v2 dodaje wszystkie rodzaje tego
-typu danych.
+Tagi ID3 mog± byæ znalezione w plikach mp3, mog± zawieraæ informacje o
+rodzaju muzyki w piosence, nazwie piosenki itp. id3v2 dodaje wszystkie
+rodzaje tego typu danych.
 
 %prep
 %setup -q
