@@ -1,7 +1,7 @@
 diff -burN id3v2-0.1.10.orig/Makefile id3v2-0.1.10/Makefile
 --- id3v2-0.1.10.orig/Makefile	2004-05-14 10:02:36.499371560 +0200
 +++ id3v2-0.1.10/Makefile	2004-05-14 10:09:18.463263760 +0200
-@@ -2,19 +2,18 @@
+@@ -2,19 +2,17 @@
  
  VERSION=0.1.10
  
@@ -9,21 +9,20 @@ diff -burN id3v2-0.1.10.orig/Makefile id3v2-0.1.10/Makefile
 -CXXFLAGS+=	-I${PREFIX}/include/ -DVERSION="\"${VERSION}\"" #-DSORT_RUNTIME
 -LDFLAGS+=	-L${PREFIX}/lib/ 
 +CXXFLAGS+=	-I$(PREFIX)/include/ -DVERSION="\"${VERSION}\"" #-DSORT_RUNTIME
-+LDFLAGS+=	-L$(PREFIX)/lib/ 
  
  id3v2:	convert.o list.o id3v2.o genre.o
 -	c++ ${LDFLAGS} -pedantic -Wall -lz -lid3 -g -o $@ $^
-+	$(CXX) $(LDFLAGS) -pedantic -Wall -lz -lid3 -g -o $@ $^
++	$(CXX) $(LDFLAGS) -pedantic -Wall -lz -lid3 -o $@ $^
  
  create_map: create_map.o
 -	c++ -Wall -g -o $@ $^
-+	$(CXX) -Wall -g -o $@ $^
++	$(CXX) -Wall -o $@ $^
  
  install: all
 -	install -c -s id3v2 ${PREFIX}/bin/id3v2
 -	nroff -man id3v2.1 > ${PREFIX}/man/man1/id3v2.1
-+	install -c -s id3v2 $(DESTDIR)$(PREFIX)/bin/id3v2
-+	nroff -man id3v2.1 > $(DESTDIR)$(PREFIX)/share/man/man1/id3v2.1
++	install -c id3v2 $(DESTDIR)$(PREFIX)/bin/id3v2
++	install id3v2.1 $(DESTDIR)$(PREFIX)/share/man/man1/id3v2.1
  
  clean:
  	rm -f id3v2 create_map core *.o
