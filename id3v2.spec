@@ -1,5 +1,5 @@
 Summary:	An MP3 technical info viewer and ID3 tag editor
-Summary(pl):	Przegl±darka informacji technicznych MP3 i edytor tagów ID3
+Summary(pl.UTF-8):   PrzeglÄ…darka informacji technicznych MP3 i edytor tagÃ³w ID3
 Name:		id3v2
 Version:	0.1.11
 Release:	1
@@ -19,8 +19,8 @@ ID3 tags can be found on MP3 files, they can store infomation about
 what band recorded the song, the song name, etc. id3v2 adds all kinds
 of neat stuff.
 
-%description -l pl
-Tagi ID3 mog± byæ znalezione w plikach MP3, mog± zawieraæ informacje o
+%description -l pl.UTF-8
+Tagi ID3 mogÄ… byÄ‡ znalezione w plikach MP3, mogÄ… zawieraÄ‡ informacje o
 rodzaju muzyki w piosence, nazwie piosenki itp. id3v2 dodaje wszystkie
 rodzaje tego typu danych.
 
