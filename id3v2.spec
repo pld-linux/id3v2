@@ -1,5 +1,5 @@
 Summary:	An MP3 technical info viewer and ID3 tag editor
-Summary(pl.UTF-8):   Przeglądarka informacji technicznych MP3 i edytor tagów ID3
+Summary(pl.UTF-8):	Przeglądarka informacji technicznych MP3 i edytor tagów ID3
 Name:		id3v2
 Version:	0.1.11
 Release:	1
