@@ -12,7 +12,7 @@ diff -burN id3v2-0.1.10.orig/Makefile id3v2-0.1.10/Makefile
  
  id3v2:	convert.o list.o id3v2.o genre.o
 -	c++ ${LDFLAGS} -pedantic -Wall -lz -lid3 -g -o $@ $^
-+	$(CXX) $(LDFLAGS) -pedantic -Wall -lz -lid3 -o $@ $^
++	$(CXX) $(LDFLAGS) -pedantic -Wall -o $@ $^ -lz -lid3
  
  create_map: create_map.o
 -	c++ -Wall -g -o $@ $^
