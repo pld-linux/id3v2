@@ -1,15 +1,16 @@
 Summary:	An MP3 technical info viewer and ID3 tag editor
 Summary(pl.UTF-8):	Przeglądarka informacji technicznych MP3 i edytor tagów ID3
 Name:		id3v2
-Version:	0.1.11
-Release:	2
+Version:	0.1.12
+Release:	1
 Epoch:		1
 License:	GPL
 Group:		Applications/Multimedia
-Source0:	http://dl.sourceforge.net/id3v2/%{name}-%{version}.tar.gz
-# Source0-md5:	68afc3827cf01501dfb22949f901f1d8
+Source0:	http://downloads.sourceforge.net/id3v2/%{name}-%{version}.tar.gz
+# Source0-md5:	be91b4a41710b3a926e913a24ba0ed3b
 Patch0:		%{name}-DESTDIR.patch
 URL:		http://id3v2.sourceforge.net/
+BuildRequires:	groff
 BuildRequires:	id3lib-devel
 BuildRequires:	libstdc++-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
